@@ -1,3 +1,6 @@
+
+
+
 .opacity{
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -45,4 +48,7 @@
 }
 .navbar-nav li {
     padding: 0 3px 0 3px;
+}
+*{
+  text-decoration: none;
 }

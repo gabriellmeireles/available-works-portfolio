@@ -14,7 +14,7 @@
                 @csrf
                 <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Nome da Categoria" required="required">
+                        <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Nome da Categoria">
                         <label for="floatingInput">Nome da Categoria</label>
                     </div>
 
@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="form-floating">
-                        <select class="form-select" name="status" id="floatingSelect" aria-label="Status da Categoria" required="required">
+                        <select class="form-select" name="status" id="floatingSelect" aria-label="Status da Categoria">
                             <option value="" disabled selected>Escolher</option>
                             <option value="1">Ativo</option>
                             <option value="0">Inativo</option>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <div class="col-sm-6"><button type="submit" class="btn btn-success w-100">Cadastrar</button></div>
+                    <div class="col-sm-6"><button type="submit" class="btn btn-action-1 w-100">Cadastrar</button></div>
                 </div>
             </form>
         </div>

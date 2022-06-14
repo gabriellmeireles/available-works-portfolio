@@ -10,13 +10,15 @@ class CategoryController extends Controller
 {
     public function index()
     {
+        $destination = PortfolioClass::CATEGORIES_FOLDER;
         if (auth()->check()) {
             $categories = Category::all();
         } else {
             $categories = Category::all()->where('status', 1);
+            //$categories = Category::has('series')->where('status', '1')->get(); // Quando estiver implementado autenticação por usuario;
         }
 
-        return view('available.categories.index', compact('categories'));
+        return view('available.categories.index', compact('categories','destination'));
         
     }
 
@@ -36,11 +38,6 @@ class CategoryController extends Controller
         $category->save();
 
         return redirect()->route('categories.index');
-    }
-
-    public function show()
-    {
-        //
     }
 
     public function edit()
