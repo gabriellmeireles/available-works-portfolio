@@ -14,7 +14,7 @@ class CategoryController extends Controller
         if (auth()->check()) {
             $categories = Category::all();
         } else {
-            $categories = Category::all()->where('status', 1);
+            $categories = Category::all();
             //$categories = Category::has('series')->where('status', '1')->get(); // Quando estiver implementado autenticação por usuario;
         }
 
@@ -40,9 +40,23 @@ class CategoryController extends Controller
         return redirect()->route('categories.index');
     }
 
-    public function edit()
+    public function update(Category $category, Request $request)
     {
-        //
+        $destination = PortfolioClass::CATEGORIES_FOLDER;
+
+        $category->name = $request->name;
+        if ($request->hasFile('image') && $request->image->isValid()) {
+            if(file_exists(public_path($destination),$category->image)){
+                unlink(public_path($destination),$category->image);
+            }
+            $fileExtension = $request->image->getClientOriginalExtension();
+            $fileName = md5($request->image->getClientOrigialName().date('d/m/Y h:i:s')).'.'.$fileExtension;
+            $request->image->move(public_path($destination),$fileName);
+        }
+        $category->status = $request->status;
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
 }
