@@ -1,0 +1,26 @@
+$theme-colors: (
+  "primary":    #8f3c10,
+  "secondary":  #D7C894,
+  "success":    #353b09,
+  "info":       #39C0ED,
+  "warning":    #FFA900,
+  "danger":     #F93154,
+  "light":      #F1F2E9,
+  "dark":       #262626,
+);
+
+:root {
+    --bs-font-sans-serif: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Inserir o CSS aqui */
+
+.btn {
+    letter-spacing: 2px,
+};
+
+
+
+@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap-icons/font/bootstrap-icons';
