@@ -43,7 +43,7 @@ $('#serieEdit').on('show.bs.modal', function (event) {
 // DELETE
 $('#serieDelete').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
-    var action = button.data('id');
+    var action = button.data('action');
     var serie = button.data('serie');
     var modal = $(this);
     modal.find('#deleteForm').attr('action', action);
@@ -92,17 +92,16 @@ $('#techniqueEdit').on('show.bs.modal', function (event) {
     var action = button.data('action');
     var technique = button.data('technique');
     var modal = $(this);
-    $('#title').val(technique.title);
-    modal.find('#status').val(technique.status);
+    $('#name').val(technique.name);
     modal.find('#editForm').attr('action', action);
 });
 // DELETE
-$('#techniqueDelete').on('show.bs.modal', function (event) {
+$('#techniqueSoftDelete').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
-    var action = button.data('id');
+    var action = button.data('action');
     var technique = button.data('technique');
     var modal = $(this);
-    modal.find('#deleteForm').attr('action', action);
-    modal.find('#name').text(technique.name);
-
+    modal.find("#softDeleteForm").attr('action', action);
+    modal.find('#techniqueName').text(technique.name);
 });
+

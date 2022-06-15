@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="row ">
                     @if ($techniques->count())
-                        <table class="table table-striped table-inverse table-responsive">
+                        <table class="table table-bordered table-striped table-responsive">
                             <thead class="thead-inverse">
                                 <tr>
                                     <th>ID</th>
@@ -28,10 +28,10 @@
                                         <td scope="row">{{ $technique->id }}</td>
                                         <td>{{ $technique->name }}</td>
                                         <td>{{ $technique->acronym }}</td>
-                                        <td>{{ $technique->status }}</td>
+                                        <td>{{ $technique->status == 1 ? 'Ativo' : 'Inativo' }}</td>
                                         <td class="fs-5">
-                                            <i class="bi bi-pencil-square px-2 text-success"></i> 
-                                            <i class="bi bi-trash px-2 text-danger"></i>
+                                            <a href="#" data-technique="{{ $technique }}" data-action="{{ route('technique.update', $technique->id) }}" data-bs-toggle="modal" data-bs-target="#techniqueEdit" class="px-2 text-success"><i class="bi bi-pencil-square"></i></a>
+                                            <a href="#" data-technique="{{ $technique }}" data-action="{{ route('technique.delete', $technique->id) }}" data-bs-toggle="modal" data-bs-target="#techniqueSoftDelete" class="px-2 text-danger"><i class="bi bi-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach 
@@ -47,9 +47,9 @@
 
     {{------------------- MODALS --------------------}}
     @include('/available/techniques/create')
-    @if(isset($category))
-        @include('/available/categories/edit')
-        @include('/available/categories/delete')
+    @if(isset($technique))
+        @include('/available/techniques/edit')
+        @include('/available/techniques/delete')
     @endif
 
     {{----------------- END MODALS ------------------}}

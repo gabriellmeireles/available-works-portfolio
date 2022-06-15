@@ -30,4 +30,21 @@ class TechniqueController extends Controller
 
         return redirect()->route('techniques.index');
     }
+
+    public function update(Request $request, Technique $technique)
+    {
+        $technique->name =  $request->name;
+        $technique->acronym = $request->acronym;
+        $technique->status = $request->status;
+
+        $technique->update();
+
+        return redirect()->route('techniques.index');
+    }
+
+    public function softDelete(Technique $technique){
+        $technique->delete();
+
+        return redirect()->route('techniques.index');
+    }
 }

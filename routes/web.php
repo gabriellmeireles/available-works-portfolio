@@ -38,6 +38,8 @@ Route::get('/available/artists', [ArtistController::class, 'index'])->name('arti
 */
 Route::get('/available/techniques', [TechniqueController::class, 'index'])->name('techniques.index');
 Route::post('/available/technique',[TechniqueController::class, 'store'])->name('technique.store');
+Route::put('/available/technique/update/{technique}',[TechniqueController::class, 'update'])->name('technique.update');
+Route::delete('/available/technique/delete/{technique}',[TechniqueController::class, 'softDelete'])->name('technique.delete');
 
 
 /* 

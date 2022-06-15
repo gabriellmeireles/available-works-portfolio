@@ -39,7 +39,7 @@
                                     <div class="col-md-11 offcanvas-body">
                                         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                                             <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page" href="#">Categoria</a>
+                                                <a class="nav-link active" aria-current="page" href="{{ route('categories.index') }}">Categoria</a>
                                             </li>
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle" href="#"
