@@ -27,7 +27,7 @@
                                         </div>
                                         <div class="d-flex justify-content-end align-items-center fs-4">
                                             <a href="#" data-category="{{ $category }}" data-action="{{ route('category.update', $category->id) }}" data-bs-toggle="modal" data-bs-target="#categoryEdit" class="px-2 text-success"><i class="bi bi-pencil-square"></i></a>
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#categoryDelete" class="px-2 text-danger"><i class="bi bi-trash"></i></a>
+                                            <a href="#" data-category="{{ $category }}" data-action="{{ route('category.delete', $category->id) }}" data-bs-toggle="modal" data-bs-target="#categorySoftDelete" class="px-2 text-danger"><i class="bi bi-trash"></i></a>
                                         </div>
                                     </div>
                                 </div>

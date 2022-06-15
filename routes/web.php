@@ -46,6 +46,7 @@ Route::get('/available/techniques', [TechniqueController::class, 'index'])->name
 Route::get('/available/categories/', [CategoryController::class, 'index'])->name('categories.index');
 Route::post('/available/category',[CategoryController::class, 'store'])->name('category.store');
 Route::put('/available/category/update/{category}',[CategoryController::class, 'update'])->name('category.update');
+Route::delete('/available/category/delete/{category}', [CategoryController::class, 'softDelete'])->name('category.delete');
 
 /* 
 |---------------------------------------------------------------------------

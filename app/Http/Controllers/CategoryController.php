@@ -59,4 +59,11 @@ class CategoryController extends Controller
         return redirect()->route('categories.index');
     }
 
+    public function softDelete(Category $category)
+    {
+        $category->delete();
+        
+        return redirect()->route('categories.index');
+    }
+
 }

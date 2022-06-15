@@ -13,14 +13,14 @@ $('#categoryEdit').on('show.bs.modal', function (event) {
 	modal.find('#status').val(category.status);
 	modal.find('#editForm').attr('action', action);
 });
-// DELETE
-$('#categoryDelete').on('show.bs.modal', function (event) {
+// SOFT DELETE
+$('#categorySoftDelete').on('show.bs.modal', function (event) {
 	var button = $(event.relatedTarget);
-	var action = button.data('id');
+	var action = button.data('action');
 	var category = button.data('category');
 	var modal = $(this);
-	modal.find('#deleteForm').attr('action', action);
-	modal.find('#name').text(category.title);
+	modal.find('#softDeleteForm').attr('action', action);
+	modal.find('#categoryName').text(category.name);
 
 });
 
