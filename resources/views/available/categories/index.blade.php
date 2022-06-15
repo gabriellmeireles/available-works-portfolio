@@ -5,10 +5,14 @@
 @section('content')
     <main>
         <div class="d-flex justify-content-end">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#categoryCreate" class="text-decoration-none"><i class="bi bi-plus-square fs-4 text-success"><small class="px-2">Add Novo</small></i></a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#techniqueCreate" class="text-decoration-none">
+                <i class="bi bi-plus-square fs-4 text-success">
+                    <small class="px-2">Add Novo</small>
+                </i>
+            </a>
         </div>
         
-        <div class="album py-5 bg-white">
+        <div class="album py-4 bg-white">
             <div class="container">
                 <div class="row ">
                     @if($categories->count())    

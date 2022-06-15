@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TechniqueController;
 use App\Http\Controllers\WorkController;
+use App\Models\Technique;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,7 @@ Route::get('/available/artists', [ArtistController::class, 'index'])->name('arti
 |---------------------------------------------------------------------------
 */
 Route::get('/available/techniques', [TechniqueController::class, 'index'])->name('techniques.index');
+Route::post('/available/technique',[TechniqueController::class, 'store'])->name('technique.store');
 
 
 /* 

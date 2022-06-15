@@ -12,10 +12,22 @@ class TechniqueController extends Controller
         if (auth()->check()) {
             $techniques = Technique::all();
         } else {
-            $techniques = Technique::all()->where('status',1);
+            $techniques = Technique::all(); //->where('status',1);
         }
         
         return view('available.techniques.index', compact('techniques'));
 
+    }
+
+    public function store(Request $request)
+    {
+        $technique = new Technique();
+        $technique->name = $request->name;
+        $technique->acronym = $request->acronym;
+        $technique->status = $request->status;
+
+        $technique->save();
+
+        return redirect()->route('techniques.index');
     }
 }

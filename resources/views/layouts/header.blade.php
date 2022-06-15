@@ -20,7 +20,7 @@
                     <nav class="navbar navbar-expand-md navbar-light bg-secondary" aria-label="Obras Disponíveis">
                         <div class="container-fluid px-5">
                             <div class="col-md-2">
-                                <a class="navbar-brand" href="{{ url('/available/categories/') }}"><img src="{{ asset('assets/img/logo-green.png') }}" alt="Ateliê Taigo Meireles"></a>
+                                <a class="navbar-brand" href="{{ route('categories.index') }}"><img src="{{ asset('assets/img/logo-green.png') }}" alt="Ateliê Taigo Meireles"></a>
                             </div>
 
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -58,7 +58,7 @@
                                                 <a class="nav-link" href="#">Obras</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#">Técnica</a>
+                                                <a class="nav-link" href="{{ route('techniques.index') }}">Técnica</a>
                                             </li>
                                         </ul>
                                     </div>
