@@ -5,19 +5,20 @@
 @section('content')
     <main>
         <div class="d-flex justify-content-end">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#techniqueCreate" class="text-decoration-none">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#categoryCreate" class="text-decoration-none">
                 <i class="bi bi-plus-square fs-4 text-success">
                     <small class="px-2">Add Novo</small>
                 </i>
             </a>
         </div>
         
+
         <div class="album py-4 bg-white">
             <div class="container">
-                <div class="row ">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-5">
                     @if($categories->count())    
                         @foreach($categories as $category)
-                            <div class="col-6 mb-4">
+                            <div class="col">
                                 <div class="card shadow-sm">
                                     @if($category->image)
                                         <img src="{{ $destination.$category->image }}" alt="{{ $category->name }}"> 
@@ -46,6 +47,7 @@
     </main>
 
     {{------------------- MODALS --------------------}}
+
     @include('/available/categories/create')
     @if(isset($category))
         @include('/available/categories/edit')

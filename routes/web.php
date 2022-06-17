@@ -29,6 +29,9 @@ Route::get('/', function () {
 |---------------------------------------------------------------------------
 */
 Route::get('/available/artists', [ArtistController::class, 'index'])->name('artists.index');
+Route::post('/available/artist', [ArtistController::class, 'store'])->name('artist.store');
+Route::put('/available/artist/update/{artist}', [ArtistController::class, 'update'])->name('artist.update');
+Route::delete('/available/artist/delete/{artist}', [ArtistController::class, 'softDelete'])->name('artist.delete');
 
 
 /* 

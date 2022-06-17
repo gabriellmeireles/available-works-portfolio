@@ -41,8 +41,11 @@
                                             <li class="nav-item">
                                                 <a class="nav-link active" aria-current="page" href="{{ route('categories.index') }}">Categoria</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" aria-current="page" href="{{ route('artists.index') }}">Artists</a>
+                                            </li>
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#"
+                                                <a class="nav-link dropdown-toggle" href="{{route('artists.index')}}"
                                                     id="offcanvasNavbarLgDropdown" role="button"
                                                     data-bs-toggle="dropdown" aria-expanded="false">
                                                     Artista
