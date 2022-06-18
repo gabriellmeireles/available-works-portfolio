@@ -10,4 +10,9 @@ class Artist extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function series()
+    {
+        return $this->hasMany(Serie::class, 'artist_id', 'id');
+    }
 }

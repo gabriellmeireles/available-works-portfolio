@@ -5,7 +5,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TechniqueController;
 use App\Http\Controllers\WorkController;
-use App\Models\Technique;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,17 +35,6 @@ Route::delete('/available/artist/delete/{artist}', [ArtistController::class, 'so
 
 /* 
 |---------------------------------------------------------------------------
-| TECHNIQUE ROUTES
-|---------------------------------------------------------------------------
-*/
-Route::get('/available/techniques', [TechniqueController::class, 'index'])->name('techniques.index');
-Route::post('/available/technique',[TechniqueController::class, 'store'])->name('technique.store');
-Route::put('/available/technique/update/{technique}',[TechniqueController::class, 'update'])->name('technique.update');
-Route::delete('/available/technique/delete/{technique}',[TechniqueController::class, 'softDelete'])->name('technique.delete');
-
-
-/* 
-|---------------------------------------------------------------------------
 | CATEGORY ROUTES
 |---------------------------------------------------------------------------
 */
@@ -55,12 +43,25 @@ Route::post('/available/category',[CategoryController::class, 'store'])->name('c
 Route::put('/available/category/update/{category}',[CategoryController::class, 'update'])->name('category.update');
 Route::delete('/available/category/delete/{category}', [CategoryController::class, 'softDelete'])->name('category.delete');
 
+
 /* 
 |---------------------------------------------------------------------------
 | SERIE ROUTES
 |---------------------------------------------------------------------------
 */
-Route::get('/available/series', [SerieController::class, 'index'])->name('series.index');
+Route::get('/available/artist/{artist?}/series/', [SerieController::class, 'index'])->name('series.index');
+
+
+/* 
+|---------------------------------------------------------------------------
+| TECHNIQUE ROUTES
+|---------------------------------------------------------------------------
+*/
+Route::get('/available/techniques', [TechniqueController::class, 'index'])->name('techniques.index');
+Route::post('/available/technique',[TechniqueController::class, 'store'])->name('technique.store');
+Route::put('/available/technique/update/{technique}',[TechniqueController::class, 'update'])->name('technique.update');
+Route::delete('/available/technique/delete/{technique}',[TechniqueController::class, 'softDelete'])->name('technique.delete');
+
 
 /* 
 |---------------------------------------------------------------------------

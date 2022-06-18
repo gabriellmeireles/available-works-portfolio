@@ -55,11 +55,12 @@ class ArtistController extends Controller
         $artist->artistic_name = $request->artistic_name;
         $artist->email = $request->email;
         if ($request->hasFile('photo') && $request->photo->isValid()) {
-            if(file_exists(public_path($destination),$artist->photo)){
-                unlink(public_path($destination),$artist->photo);
+            $file = file_exists(public_path($destination).$artist->photo);
+            if(file_exists(public_path($destination).'/'.$artist->photo)){
+                unlink(public_path($destination).'/'.$artist->photo);
             }
             $fileExtension = $request->photo->getClientOriginalExtension();
-            $fileName = md5($request->photo->getClienteOrinalName().date('d/m/Y h:i:s')).'.'.$fileExtension;
+            $fileName = md5($request->photo->getClientOriginalName().date('d/m/Y h:i:s')).'.'.$fileExtension;
             $request->photo->move(public_path($destination),$fileName);
             $artist->photo = $fileName; 
         }
