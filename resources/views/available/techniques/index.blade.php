@@ -17,6 +17,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>NOME</th>
+                                    <th>SLUG</th>
                                     <th>ACRÔNIMO</th>
                                     <th>STATUS</th>
                                     <th>AÇÕES</th>
@@ -27,6 +28,7 @@
                                     <tr>
                                         <td scope="row">{{ $technique->id }}</td>
                                         <td>{{ $technique->name }}</td>
+                                        <td>{{ $technique->slug }}</td>
                                         <td>{{ $technique->acronym }}</td>
                                         <td>{{ $technique->status == 1 ? 'Ativo' : 'Inativo' }}</td>
                                         <td class="fs-5">
