@@ -1,5 +1,5 @@
 @extends('layouts.full')
-@section('title', 'PORTFÓLIO')
+@section('title', 'CATEGORIA')
 
 
 @section('content')
@@ -12,34 +12,37 @@
             </a>
         </div>
         
-
         <div class="album py-4 bg-white">
             <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-5">
-                    @if($categories->count())    
-                        @foreach($categories as $category)
-                            <div class="col">
-                                <div class="card shadow-sm">
-                                    @if($category->image)
-                                        <img src="{{ $destination.$category->image }}" alt="{{ $category->name }}"> 
-                                    @else
-                                        <img src=" {{ asset('assets/img/image-not-found.jpg') }} " alt="Image not found">
-                                    @endif
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="card-text pt-3 {{ $category->status != 1 ? 'text-danger' : ''}}"><strong>{{ strtoupper($category->name) }}</strong></p>
-                                            <small class="text-muted">{{ $categories->count() }}</small> {{-- ESSE COUNT SERÁ NA TABELA 'SERIES' --}}
-                                        </div>
-                                        <div class="d-flex justify-content-end align-items-center fs-4">
+                <div class="row ">
+                    @if ($categories->count())
+                        <table class="table table-bordered table-striped table-responsive">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NOME</th>
+                                    <th>STATUS</th>
+                                    <th>QTD DE SERIES</th>
+                                    <th>AÇÕES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($categories as $category)
+                                    <tr>
+                                        <td scope="row">{{ $category->id }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->status == 1 ? 'Ativo' : 'Inativo' }}</td>
+                                        <td>{{ $category->series->count() }}</td>
+                                        <td class="fs-5">
                                             <a href="#" data-category="{{ $category }}" data-action="{{ route('category.update', $category->id) }}" data-bs-toggle="modal" data-bs-target="#categoryEdit" class="px-2 text-success"><i class="bi bi-pencil-square"></i></a>
                                             <a href="#" data-category="{{ $category }}" data-action="{{ route('category.delete', $category->id) }}" data-bs-toggle="modal" data-bs-target="#categorySoftDelete" class="px-2 text-danger"><i class="bi bi-trash"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+                                        </td>
+                                    </tr>
+                                @endforeach 
+                            </tbody>
+                        </table> 
                     @else
-                    Não há obras disponíveis para venda no momento!
+                        Não há obras disponíveis para venda no momento! 
                     @endif
                 </div>
             </div>

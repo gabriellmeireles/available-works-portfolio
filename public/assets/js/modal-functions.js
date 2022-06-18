@@ -9,7 +9,7 @@ $('#categoryEdit').on('show.bs.modal', function (event) {
 	var action = button.data('action');
 	var category = button.data('category');
 	var modal = $(this);
-	$('#title').val(category.title);
+	modal.find('#name').val(category.name);
 	modal.find('#status').val(category.status);
 	modal.find('#editForm').attr('action', action);
 });
@@ -33,10 +33,11 @@ $('#categorySoftDelete').on('show.bs.modal', function (event) {
 $('#serieEdit').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     var action = button.data('action');
-    console.log(action)
     var serie = button.data('serie');
     var modal = $(this);
-    $('#title').val(serie.title);
+    modal.find('#artist_id').val(serie.artist_id);
+    modal.find('#name').val(serie.name);
+    modal.find('#category_id').val(serie.category_id);
     modal.find('#status').val(serie.status);
     modal.find('#editForm').attr('action', action);
 });
@@ -47,7 +48,7 @@ $('#serieSoftDelete').on('show.bs.modal', function (event) {
     var serie = button.data('serie');
     var modal = $(this);
     modal.find('#softDeleteForm').attr('action', action);
-    modal.find('#name').text(serie.name);
+    modal.find('#serieName').text(serie.name);
 
 });
 
@@ -63,7 +64,9 @@ $('#artistEdit').on('show.bs.modal', function (event) {
     var action = button.data('action');
     var artist = button.data('artist');
     var modal = $(this);
-    $('#artistic_name').val(artist.artistic_name);
+    modal.find('#full_name').val(artist.full_name);
+    modal.find('#artistic_name').val(artist.artistic_name);
+    modal.find('#email').val(artist.email);
     modal.find('#status').val(artist.status);
     modal.find('#editForm').attr('action', action);
 });
@@ -90,7 +93,9 @@ $('#techniqueEdit').on('show.bs.modal', function (event) {
     var action = button.data('action');
     var technique = button.data('technique');
     var modal = $(this);
-    $('#name').val(technique.name);
+    modal.find('#name').val(technique.name);
+    modal.find('#acronym').val(technique.acronym);
+    modal.find('#status').val(technique.status);
     modal.find('#editForm').attr('action', action);
 });
 // DELETE

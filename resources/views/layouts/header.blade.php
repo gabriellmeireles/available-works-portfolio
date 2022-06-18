@@ -55,7 +55,7 @@
                                                 </ul>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#">Series</a>
+                                                <a class="nav-link" href="{{ route('series.index') }}">Series</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">Obras</a>

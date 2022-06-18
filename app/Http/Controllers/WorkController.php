@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class WorkController extends Controller
 {
-    public function index()
+    public function index($serie = null)
     {
-        if (auth()->check()) {
+        if (!auth()->check()) {
             $works = Work::all();
         } else {
             $works = Work::all()->where('status', 1);

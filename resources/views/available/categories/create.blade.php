@@ -14,21 +14,17 @@
                 @csrf
                 <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Nome da Categoria" required="required">
-                        <label for="floatingInput">Nome da Categoria</label>
-                    </div>
-
-                    <div class="mb-3">
-                        <input type="file" name="image"  class="form-control" required="required">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Nome da Categoria" required="required">
+                        <label for="name">Nome da Categoria</label>
                     </div>
 
                     <div class="form-floating">
-                        <select class="form-select" name="status" id="floatingSelect" aria-label="Status da Categoria" required="required">
+                        <select class="form-select" name="status" id="status" aria-label="Status da Categoria" required="required">
                             <option value="" disabled selected>Escolher</option>
                             <option value="1">Ativo</option>
                             <option value="0">Inativo</option>
                         </select>
-                        <label for="floatingSelect">Status</label>
+                        <label for="status">Status</label>
                     </div>
                 </div>
                 <div class="modal-footer">

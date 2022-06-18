@@ -18,11 +18,7 @@
                         <input type="text" name="name" class="form-control" id="name" value="{{ $category->name }}" placeholder="Nome da Categoria" required="required">
                         <label for="name">Nome da Categoria</label>
                     </div>
-
-                    <div class="mb-3">
-                        <input type="file" name="image" id="image" value="" class="form-control">
-                    </div>
-
+                    
                     <div class="form-floating">
                         <select class="form-select" name="status" id="status" aria-label="Status da Categoria" required="required">
                             <option value="" disabled selected>Escolher</option>

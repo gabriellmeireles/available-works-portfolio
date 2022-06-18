@@ -10,4 +10,9 @@ class Technique extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function works()
+    {
+        return $this->hasMany(Work::class, 'technique_id', 'id');
+    }
 }

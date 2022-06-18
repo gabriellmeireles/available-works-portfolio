@@ -32,6 +32,7 @@ class ArtistController extends Controller
 
         $artist->full_name = $request->full_name;
         $artist->artistic_name = $request->artistic_name;
+        $artist->slug = PortfolioClass::stringCleanReplaceSpace($request->artistic_name,'-');
         $artist->email = $request->email;
         $artist->status = $request->status;
         if ($request->hasFile('photo') && $request->photo->isValid()) {
@@ -53,6 +54,7 @@ class ArtistController extends Controller
 
         $artist->full_name = $request->full_name;
         $artist->artistic_name = $request->artistic_name;
+        $artist->slug = PortfolioClass::stringCleanReplaceSpace($request->artistic_name,'-');
         $artist->email = $request->email;
         if ($request->hasFile('photo') && $request->photo->isValid()) {
             if(file_exists(public_path($destination),$artist->photo)){

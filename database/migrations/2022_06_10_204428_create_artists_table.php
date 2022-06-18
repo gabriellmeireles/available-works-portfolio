@@ -17,6 +17,7 @@ class CreateArtistsTable extends Migration
             $table->id();
             $table->string('full_name');
             $table->string('artistic_name');
+            $table->string('slug');
             $table->string('email')->unique();
             $table->string('folder');
             $table->string('photo')->nullable();

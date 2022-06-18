@@ -10,7 +10,6 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $destination = PortfolioClass::CATEGORIES_FOLDER;
         if (auth()->check()) {
             $categories = Category::all();
         } else {
@@ -18,22 +17,16 @@ class CategoryController extends Controller
             //$categories = Category::has('series')->where('status', '1')->get(); // Quando estiver implementado autenticação por usuario;
         }
 
-        return view('available.categories.index', compact('categories','destination'));
+        return view('available.categories.index', compact('categories'));
         
     }
 
     public function store(Request $request)
     {
         $category = new Category();
-        $destination = PortfolioClass::CATEGORIES_FOLDER;
-
+        
         $category->name = $request->name;
-        if ($request->hasFile('image') && $request->image->isValid()) {
-            $fileExtension = $request->image->getClientOriginalExtension();
-            $fileName = md5($request->image->getClientOriginalName().date('d/m/Y h:m:s')).'.'.$fileExtension;
-            $request->image->move(public_path($destination),$fileName);
-            $category->image = $fileName;
-        }
+        $category->slug = PortfolioClass::stringCleanReplaceSpace($request->name,'-');
         $category->status = $request->status;
         $category->save();
 
@@ -45,14 +38,7 @@ class CategoryController extends Controller
         $destination = PortfolioClass::CATEGORIES_FOLDER;
 
         $category->name = $request->name;
-        if ($request->hasFile('image') && $request->image->isValid()) {
-            if(file_exists(public_path($destination),$category->image)){
-                unlink(public_path($destination),$category->image);
-            }
-            $fileExtension = $request->image->getClientOriginalExtension();
-            $fileName = md5($request->image->getClientOrigialName().date('d/m/Y h:i:s')).'.'.$fileExtension;
-            $request->image->move(public_path($destination),$fileName);
-        }
+        $category->slug = PortfolioClass::stringCleanReplaceSpace($request->name,'-');
         $category->status = $request->status;
         $category->save();
 

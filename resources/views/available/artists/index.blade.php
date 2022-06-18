@@ -15,24 +15,27 @@
 
         <div class="album py-4 bg-white">
             <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-5">
-                    @if($artists->count())    
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2">
+                    @if($artists->count())   
                         @foreach($artists as $artist)
                             <div class="col">
                                 <div class="card mb-3 img">
                                     <div class="row g-0">
-                                        <div class="col-md-4">
+                                        <div class="col-md-5">
                                             <img src="{{$destination.$artist->folder.'/'.$artist->photo}}" class="img-fluid rounded-start" alt="{{$artist->artistic_name}}">
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{$artist->artistic_name}}</h5>
                                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                <p class="card-text"><small class="text-muted">obras: {{$artist->count()}}</small></p>
+                                                <p class="card-text"><small class="text-muted">series: {{$artist->series->count()}}</small></p>
                                             </div>
                                             <div class="d-flex justify-content-end align-items-end fs-4">
                                                 <a href="#" data-artist="{{ $artist }}" data-action="{{ route('artist.update', $artist->id) }}" data-bs-toggle="modal" data-bs-target="#artistEdit" class="px-2 text-success"><i class="bi bi-pencil-square"></i></a>
-                                                <a href="{{$artist->id}}" data-artist="{{ $artist }}" data-action="{{ route('artist.delete', $artist->id) }}" data-bs-toggle="modal" data-bs-target="#artistSoftDelete" class="px-2 text-danger"><i class="bi bi-trash"></i></a>
+                                                <a href="#" data-artist="{{ $artist }}" data-action="{{ route('artist.delete', $artist->id) }}" data-bs-toggle="modal" data-bs-target="#artistSoftDelete" class="px-2 text-danger"><i class="bi bi-trash"></i></a>
+                                            </div>
+                                            <div class="d-flex justify-content-center align-items-end fs-4">
+                                                <a href="{{ route('series.index', ['artist' => $artist->slug]) }}" class="px-2 text-success">acessar</i></a>
                                             </div>
                                         </div>
                                     </div>

@@ -36,6 +36,28 @@ Route::delete('/available/artist/delete/{artist}', [ArtistController::class, 'so
 
 /* 
 |---------------------------------------------------------------------------
+| CATEGORY ROUTES
+|---------------------------------------------------------------------------
+*/
+Route::get('/available/categories/', [CategoryController::class, 'index'])->name('categories.index');
+Route::post('/available/category',[CategoryController::class, 'store'])->name('category.store');
+Route::put('/available/category/update/{category}',[CategoryController::class, 'update'])->name('category.update');
+Route::delete('/available/category/delete/{category}', [CategoryController::class, 'softDelete'])->name('category.delete');
+
+
+/* 
+|---------------------------------------------------------------------------
+| SERIE ROUTES
+|---------------------------------------------------------------------------
+*/
+Route::get('/available/{artist?}/series', [SerieController::class, 'index'])->name('series.index');
+Route::post('/available/serie', [SerieController::class, 'store'])->name('serie.store');
+Route::put('/available/serie/{serie}/update', [SerieController::class, 'update'])->name('serie.update');
+Route::delete('/available/serie/{serie}/delete', [SerieController::class, 'softDelete'])->name('serie.delete');
+
+
+/* 
+|---------------------------------------------------------------------------
 | TECHNIQUE ROUTES
 |---------------------------------------------------------------------------
 */
@@ -47,25 +69,8 @@ Route::delete('/available/technique/delete/{technique}',[TechniqueController::cl
 
 /* 
 |---------------------------------------------------------------------------
-| CATEGORY ROUTES
-|---------------------------------------------------------------------------
-*/
-Route::get('/available/categories/', [CategoryController::class, 'index'])->name('categories.index');
-Route::post('/available/category',[CategoryController::class, 'store'])->name('category.store');
-Route::put('/available/category/update/{category}',[CategoryController::class, 'update'])->name('category.update');
-Route::delete('/available/category/delete/{category}', [CategoryController::class, 'softDelete'])->name('category.delete');
-
-/* 
-|---------------------------------------------------------------------------
-| SERIE ROUTES
-|---------------------------------------------------------------------------
-*/
-Route::get('/available/series', [SerieController::class, 'index'])->name('series.index');
-
-/* 
-|---------------------------------------------------------------------------
 | WORK ROUTES
 |---------------------------------------------------------------------------
 */
-Route::get('/available/works', [WorkController::class, 'index'])->name('work.index');
+Route::get('/available/{artist?}/{serie?}', [WorkController::class, 'index'])->name('works.index');
 
