@@ -13,15 +13,17 @@ class SerieController extends Controller
 {
     public function index($artist = null)
     {
+        $destination = PortfolioClass::ARTISTS_FOLDER;
         if (!auth()->check()) {
             $series = Serie::all()->where('artist_id', $artist);
             $categories = Category::all();
         } else {
             $series = Serie::all()->where('artist_id', $artist);
             $categories = Category::all()->where('status',1);
+
         }
-        
-        return view('available.series.index', compact('series', 'categories'));
+
+        return view('available.series.index', compact('series', 'categories','destination'));
     }
 
     public function store(Request $request)

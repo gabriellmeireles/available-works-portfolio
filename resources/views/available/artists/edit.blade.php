@@ -33,6 +33,11 @@
                         <label for="email">Email</label>
                     </div>
 
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Sobre o Artista" name="about" id="about" value="{{ $artist->about}}" style="height: 8em" maxlength="" ></textarea>
+                        <label for="email">Sobre o Artista</label>
+                    </div>
+
                     <div class="form-floating">
                         <select class="form-select" name="status" id="status" aria-label="Status do Artista" required="required">
                             <option value="" disabled selected>Escolher</option>

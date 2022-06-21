@@ -20,7 +20,7 @@
                             <h1><img src="assets/img/logo.png" alt=""></h1>
                             <p>Portfólio de obras disponíveis</p>
                             <div class="d-grid gap-2 col-6 mx-auto">                              
-                                <button class="btn btn-dark" type="button"><a href=" {{ url('/available/categories/') }} ">Entrar</a></button>
+                                <button class="btn btn-primary" type="button"><a href=" {{ route('artists.index') }} ">Entrar</a></button>
                             </div>
                         </div>
                     </div>

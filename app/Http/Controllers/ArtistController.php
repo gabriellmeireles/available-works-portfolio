@@ -33,6 +33,7 @@ class ArtistController extends Controller
         $artist->full_name = $request->full_name;
         $artist->artistic_name = $request->artistic_name;
         $artist->email = $request->email;
+        $artist->about = $request->about;
         $artist->status = $request->status;
         if ($request->hasFile('photo') && $request->photo->isValid()) {
             $fileExtension = $request->photo->getClientOriginalExtension();
@@ -54,8 +55,8 @@ class ArtistController extends Controller
         $artist->full_name = $request->full_name;
         $artist->artistic_name = $request->artistic_name;
         $artist->email = $request->email;
+        $artist->about = $request->about;
         if ($request->hasFile('photo') && $request->photo->isValid()) {
-            $file = file_exists(public_path($destination).$artist->photo);
             if(file_exists(public_path($destination).'/'.$artist->photo)){
                 unlink(public_path($destination).'/'.$artist->photo);
             }

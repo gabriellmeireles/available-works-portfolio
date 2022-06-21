@@ -12,6 +12,7 @@ $('#artistEdit').on('show.bs.modal', function (event) {
     modal.find('#full_name').val(artist.full_name);
     modal.find('#artistic_name').val(artist.artistic_name);
     modal.find('#email').val(artist.email);
+    modal.find('#about').val(artist.about);
     modal.find('#status').val(artist.status);
     modal.find('#editForm').attr('action', action);
 });
@@ -61,11 +62,12 @@ $('#categorySoftDelete').on('show.bs.modal', function (event) {
 $('#serieEdit').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     var action = button.data('action');
-    console.log(action)
     var serie = button.data('serie');
     var modal = $(this);
     modal.find('#name').val(serie.name);
     modal.find('#status').val(serie.status);
+    modal.find('#artist_id').val(serie.artist_id);
+    modal.find('#category_id').val(serie.category_id);
     modal.find('#editForm').attr('action', action);
 });
 // DELETE
@@ -75,7 +77,7 @@ $('#serieSoftDelete').on('show.bs.modal', function (event) {
     var serie = button.data('serie');
     var modal = $(this);
     modal.find('#softDeleteForm').attr('action', action);
-    modal.find('#name').text(serie.name);
+    modal.find('#serieName').text(serie.name);
 
 });
 

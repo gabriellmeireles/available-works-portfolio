@@ -21,6 +21,7 @@ class CreateArtistsTable extends Migration
             $table->string('email')->unique();
             $table->string('folder');
             $table->string('photo')->nullable();
+            $table->text('about');
             $table->boolean('status');
             $table->timestamps();
         });

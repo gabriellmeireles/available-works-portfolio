@@ -1,7 +1,7 @@
 <section>
     <div class="container my-5">
         <header class="pt-5">
-            <h1 class="display-5 fw-normal">@yield('title')</h1>
+            <h1 class="display-6 fw-semibold">@yield('title')</h1>
         </header>
         @yield('content')
     </div>

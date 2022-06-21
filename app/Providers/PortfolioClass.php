@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 class PortfolioClass extends ServiceProvider
 {
     const ARTISTS_FOLDER = '/available/images/artists/';
-    const CATEGORIES_FOLDER = '/available/images/categories/';
+    //const CATEGORIES_FOLDER = '/available/images/categories/';
 
     /**
      * Remove spaces in the beginning and in the end of the string;

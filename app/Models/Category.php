@@ -12,4 +12,9 @@ class Category extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
+
+    public function series()
+    {
+        return $this->hasMany(Serie::class, 'category_id', 'id');
+    }
 }

@@ -1,12 +1,13 @@
 .opacity{
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .welcome {
-    background-image: url(/assets/img/inicial-bg.jpg);
+   /*  background-image: url(/assets/img/inicial-bg.jpg); */
+    background-image: url(/assets/img/2-atelie-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top center;
+    background-position: center center;
     height: 100vh;
     width: 100%;
 }
@@ -47,13 +48,50 @@
     padding: 0 3px 0 3px;
 }
 
-.img{
+.artist{
     max-width: 600px;
 }
-.img img{
-    min-height: 300px;
-    max-height: 300px;
+.artist img{
+    min-height: 45vh;
+    max-height: 45vh;
     width: 100%;
     object-fit: cover;
     object-position: center 20%;
+}
+
+.serie img{
+    min-height: 50vh;
+    max-height: 50vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.work{
+    margin-bottom: 6em;
+}
+
+.work p {
+    color: #000;
+    font-size: 15px;
+}
+.work strong{
+    color: #27282ab3;
+}
+
+.work img{
+    width: 100%;
+    min-height: 100%;
+    object-fit: contain;
+    object-position: center 0;
+}
+
+.form-switch .form-check-input {
+    width: 4em;
+    height: 1.6em;
+    margin-right: 0.8em;
+}
+
+.form-switch.form-check-reverse .form-check-input{
+    margin-left: 0.8em !important;
 }

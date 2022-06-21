@@ -32,6 +32,11 @@
                         <label for="email">Email</label>
                     </div>
 
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Sobre o Artista" name="about" id="about"></textarea>
+                        <label for="email">Sobre o Artista</label>
+                    </div>
+
                     <div class="form-floating">
                         <select class="form-select" name="status" id="floatingSelect" aria-label="Status da Categoria" required="required">
                             <option value="" disabled selected>Escolher</option>
