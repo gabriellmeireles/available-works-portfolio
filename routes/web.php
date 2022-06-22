@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\ArtistController;
-use App\Http\Controllers\AuthContoller;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TechniqueController;
 use App\Http\Controllers\WorkController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('available.index');
 });
@@ -28,7 +30,7 @@ Route::get('/', function () {
 | AUTH ROUTES
 |---------------------------------------------------------------------------
 */
-//Route::get('/admin', AuthContoller::class, 'dashboard')->name('admin');
+Auth::routes();
 
 /* 
 |---------------------------------------------------------------------------

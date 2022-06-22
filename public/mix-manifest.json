@@ -1,7 +1,4 @@
 {
-    "/assets/css/bootstrap-icons.css": "/assets/css/bootstrap-icons.css",
-    "/assets/css/style.css": "/assets/css/style.css",
-    "/assets/js/jquery.js": "/assets/js/jquery.js",
-    "/assets/js/bootstrap.js": "/assets/js/bootstrap.js",
-    "/assets/js/bootstrap.bundle.min.js.map": "/assets/js/bootstrap.bundle.min.js.map"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css"
 }

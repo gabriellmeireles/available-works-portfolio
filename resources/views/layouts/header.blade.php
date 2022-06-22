@@ -74,13 +74,38 @@
                                         <i class="bi bi-person-bounding-box fs-4 text-success"></i>
                                     </a>
                                     <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser">
-                                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                        @guest
+                                            <li><a class="dropdown-item" href="{{ route('login') }}">Entrar</a></li>
+                                        @else
+                                            <li>
+                                                <p class="dropdown-item">
+                                                    <strong>{{ Auth::user()->name }}</strong>
+                                                </p>
+                                            </li>   
+                                        
+
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+
+                                            @if (Route::has('register'))
+                                                <li>
+                                                    <a class="dropdown-item"  href="{{ route('register') }}">Registrar</a>
+                                                </li>
+                                            @endif
+                                       
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    Sair
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        @endguest    
                                     </ul>
                                 </div>
                             </div>
