@@ -23,7 +23,7 @@
                                 <a class="text-decoration-none text-primary" href="{{ route('works.index', $serie->id) }}">
                                     <div class="card shadow-sm serie">
                                         @if($serie->cover_image)
-                                            <img src="{{ $destination.$serie->artist->folder.'/'.$serie->category->folder.'/'.$serie->folder.'/'.$serie->cover_image }}" alt="{{ $serie->name }}"> 
+                                            <img src="{{ asset($destination.$serie->artist->folder.'/'.$serie->category->folder.'/'.$serie->folder.'/'.$serie->cover_image) }}" alt="{{ $serie->name }}"> 
                                         @else
                                             <img src=" {{ asset('assets/img/image-not-found.jpg') }} " alt="Image not found">
                                         @endif
@@ -44,7 +44,7 @@
                             </div>
                         @endforeach
                     @else
-                    Não há obras disponíveis para venda no momento!
+                    <p class="pt-3">Não há obras disponíveis para venda no momento!</p>
                     @endif
                 </div>
             </div>

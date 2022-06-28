@@ -20,9 +20,9 @@
                     <nav class="navbar navbar-expand-md navbar-light bg-secondary" aria-label="Obras Disponíveis">
                         <div class="container-fluid px-5">
                             <div class="col-md-2">
-                                <a class="navbar-brand" href="{{ route('categories.index') }}"><img src="{{ asset('assets/img/logo-green.png') }}" alt="Ateliê Taigo Meireles"></a>
+                                <a class="navbar-brand" href="{{ route('artists.index') }}"><img src="{{ asset('assets/img/logo-green.png') }}" alt="Ateliê Taigo Meireles"></a>
                             </div>
-
+                            
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                                 <span class="navbar-toggler-icon"></span>
@@ -38,35 +38,36 @@
                                     </div>
                                     <div class="col-md-11 offcanvas-body">
                                         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                                        </li>
+                                            @auth                                            
+                                                <li class="nav-item">
+                                                    <a class="nav-link"  href="{{ route('categories.index') }}">Categoria</a>
+                                                </li>
+                                            @endauth    
+                                            @auth
+                                                <li class="nav-item">
+                                                    <a class="nav-link"  href="{{ route('artists.index') }}">Artists</a>
+                                                </li>
+                                            @endauth
                                             <li class="nav-item">
-                                                <a class="nav-link active" aria-current="page" href="{{ route('categories.index') }}">Categoria</a>
+                                                <a class="nav-link active" href="#">Series</a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" aria-current="page" href="{{ route('artists.index') }}">Artists</a>
-                                            </li>
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="{{route('artists.index')}}"
-                                                    id="offcanvasNavbarLgDropdown" role="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Artista
-                                                </a>
-                                                <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarLgDropdown">
-                                                    <li><a class="dropdown-item" href="#">Taigo Meireles</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Series</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Obras</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('techniques.index') }}">Técnica</a>
-                                            </li>
+                                            @auth
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">Obras</a>
+                                                </li>
+                                            @endauth
+                                            @auth
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ route('techniques.index') }}">Técnica</a>
+                                                </li>
+                                            @endauth
                                         </ul>
                                     </div>
                                 </div>
                             </div>
+
+                            @auth
                             <div class="col-md-1">
                                 <div class="flex-shrink-0 dropdown navbar-nav justify-content-end flex-grow-1 pe-3">
                                     <a href="#" class="d-block link-success text-decoration-none dropdown-toggle"
@@ -109,6 +110,7 @@
                                     </ul>
                                 </div>
                             </div>
+                            @endauth
                         </div>
                     </nav>
                 </div>

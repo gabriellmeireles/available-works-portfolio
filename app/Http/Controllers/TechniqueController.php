@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Technique;
+use App\Providers\PortfolioClass;
 use Illuminate\Http\Request;
 
 class TechniqueController extends Controller
@@ -24,6 +25,7 @@ class TechniqueController extends Controller
         $technique = new Technique();
         $technique->name = $request->name;
         $technique->acronym = $request->acronym;
+        $technique->slug = PortfolioClass::stringCleanReplaceSpace($request->name,'-');
         $technique->status = $request->status;
 
         $technique->save();
@@ -34,6 +36,7 @@ class TechniqueController extends Controller
     public function update(Request $request, Technique $technique)
     {
         $technique->name =  $request->name;
+        $technique->slug = PortfolioClass::stringCleanReplaceSpace($request->name,'-');
         $technique->acronym = $request->acronym;
         $technique->status = $request->status;
 

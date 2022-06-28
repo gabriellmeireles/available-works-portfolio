@@ -7,7 +7,7 @@ use App\Models\Technique;
 use App\Models\Work;
 use App\Providers\PortfolioClass;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 class WorkController extends Controller
 {
@@ -18,8 +18,10 @@ class WorkController extends Controller
         $works = Work::all()->where('serie_id', '=', $serie);
         $serie = Serie::find($serie);
         $techniques = Technique::all();
-        $destination = PortfolioClass::ARTISTS_FOLDER.$serie->artist->folder.'/'.$serie->category->folder.'/'.$serie->folder;
+        //$destination = storage_path('app\\public\\'.$serie->artist->folder.'\\'.$serie->category->folder.'\\'.$serie->folder);
+        $destination = 'storage'.'/'.$serie->artist->folder.'/'.$serie->category->folder.'/'.$serie->folder;
         
+        //dd($destination);   
         //dd(DB::getQueryLog()); //Imprime a query sql
                        
         return view('available.works.index', compact('works','serie','techniques','destination'));
@@ -28,8 +30,28 @@ class WorkController extends Controller
 
     public function store(Request $request, Serie $serie)
     {
+        //Methods we can use on $request
+        //guessExtension()
+        //getMimeType()
+        //store()
+        //asStore()
+        //storePublicly
+        //move()
+        //getClientOrinalName
+        //getClientMineType
+        //guesClientExtension()
+        //getsize()
+        //getError()
+        //isValid
+        
+        
+        $request->validate([
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
         $serie = Serie::find($request->serie_id);
         $work = new Work();
+        $destination = $serie->artist->folder.'/'.$serie->category->folder.'/'.$serie->folder;
 
         $work->title = $request->title;
         $work->slug = PortfolioClass::stringCleanReplaceSpace($request->title,'-');
@@ -46,19 +68,17 @@ class WorkController extends Controller
         if ($request->hasFile('image') && $request->image->isValid()) {
             $fileExtension = $request->image->getClientOriginalExtension();
             $fileName = md5($request->image->getClientOriginalName().date('d/m/Y h:i:s')).'.'.$fileExtension;
-            $destination = PortfolioClass::ARTISTS_FOLDER.$serie->artist->folder.'/'.$serie->category->folder.'/'.$serie->folder;
-            $request->image->move(public_path($destination),$fileName);
-            
+            $request->file('image')->storeAs($destination, $fileName );
             $work->image = $fileName;
             
             if ($request->cover_image) {
                 $serie->cover_image = $fileName;
+                $serie->save();
             }
         }
-        
-        $work->save();
-        $serie->save();
-
+       
+        $work->save(); 
+             
         return back();
 
     }
@@ -66,6 +86,7 @@ class WorkController extends Controller
     public function update(Request $request, Work $work)
     {
         $serie = Serie::find($request->serie_id);
+        $destination = $serie->artist->folder.'/'.$serie->category->folder.'/'.$serie->folder;
         
         $work->title = $request->title;
         $work->slug = PortfolioClass::stringCleanReplaceSpace($request->title,'-');
@@ -82,20 +103,26 @@ class WorkController extends Controller
         if ($request->hasFile('image') && $request->image->isValid()) {
             $fileExtension = $request->image->getClientOriginalExtension();
             $fileName = md5($request->image->getClientOriginalName().date('d/m/Y h:i:s')).'.'.$fileExtension;
-            $destination = PortfolioClass::ARTISTS_FOLDER.$serie->artist->folder.'/'.$serie->category->folder.'/'.$serie->folder;
-            $request->image->move(public_path($destination),$fileName);
+            $request->file('image')->storeAs($destination, $fileName );
             
             $work->image = $fileName;
             
             if ($request->cover_image) {
                 $serie->cover_image = $fileName;
+                $serie->save();
             }
         }
-        
+       
         $work->save();
-        $serie->save();
 
         return back();
         
+    }
+
+    public function softDelete(Work $work)
+    {
+        $work->delete();
+        
+        return back();
     }
 }

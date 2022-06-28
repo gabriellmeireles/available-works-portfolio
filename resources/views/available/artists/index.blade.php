@@ -1,7 +1,6 @@
 @extends('layouts.full')
 @section('title', 'ARTISTAS')
 
-
 @section('content')
     <main>
         @auth
@@ -24,7 +23,7 @@
                                 <div class="card mb-3 artist">
                                     <div class="row g-0">
                                         <div class="col-md-5">
-                                            <img src="{{$destination.$artist->folder.'/'.$artist->photo}}"  alt="{{$artist->artistic_name}}">
+                                            <img src="{{asset($destination.$artist->folder.'/'.$artist->photo)}}"  alt="{{$artist->artistic_name}}">
                                         </div>
                                         <div class="col-md-7 d-flex flex-column">
                                             <div class="card-body flex-column ">
@@ -50,7 +49,7 @@
                             </div>
                         @endforeach
                     @else
-                    Não há artistas cadastrados no momento!
+                    <p class="pt-3">Não há artistas cadastrados no momento!</p>
                     @endif
                 </div>
             </div>

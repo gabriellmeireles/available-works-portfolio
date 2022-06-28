@@ -13,17 +13,17 @@ class SerieController extends Controller
 {
     public function index($artist = null)
     {
-        $destination = PortfolioClass::ARTISTS_FOLDER;
-        if (!auth()->check()) {
+        $destination = "storage/";
+        if (auth()->check()) {
             $series = Serie::all()->where('artist_id', $artist);
             $categories = Category::all();
         } else {
-            $series = Serie::all()->where('artist_id', $artist);
+            $series = Serie::all()->where('artist_id', $artist)->where('status',1);
             $categories = Category::all()->where('status',1);
 
         }
 
-        return view('available.series.index', compact('series', 'categories','destination'));
+        return view('available.series.index', compact('series', 'categories','destination','artist'));
     }
 
     public function store(Request $request)
@@ -31,6 +31,7 @@ class SerieController extends Controller
         $serie = new Serie();
 
         $serie->name = $request->name;
+        $serie->folder = PortfolioClass::stringCleanReplaceSpace($request->name,'_');
         $serie->slug = PortfolioClass::stringCleanReplaceSpace($request->name,'-');
         $serie->status = $request->status;
         $serie->artist_id = $request->artist_id;

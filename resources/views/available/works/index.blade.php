@@ -21,7 +21,7 @@
                         <div class="mb-1 container-fluid col-md-7">
                             @if ($work->image)
                                 <p class="d-block">
-                                    <img src="{{ $destination.'/'.$work->image }}" alt="{{ $work->title }}" class="w-100 mb-4 img-fluid">
+                                    <img src="{{ asset($destination.'/'.$work->image) }}" alt="{{ $work->title }}" class="w-100 mb-4 img-fluid">
                                 </p> 
                             @else
                                 <p class="d-block">

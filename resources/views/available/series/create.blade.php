@@ -13,12 +13,7 @@
             <form action="{{ route('serie.store') }}" method="POST" enctype="multipart/form-data" class="mb-15" data-aos="fade-down" data-aos-delay="150">
                 @csrf
                 <div class="modal-body">
-                    <div class="form-floating mb-3">
-                        <select class="form-select" name="artist_id" id="artist_id" aria-label="Artista" readonly>
-                            <option value="{{ $serie->artist_id }}" selected>{{ $serie->artist->artistic_name }}</option>
-                        </select>
-                        <label for="artist_id">Artista</label>
-                    </div>
+                    <input type="hidden" name="artist_id" value="{{ $artist }}">
 
                     <div class="form-floating mb-3">
                         <select class="form-select" name="category_id" id="category_id" aria-label="Categoria" required="required">
