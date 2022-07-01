@@ -118,27 +118,27 @@ $('#techniqueSoftDelete').on('show.bs.modal', function (event) {
 $('#workEdit').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     var action = button.data('action');
-    var technique = button.data('work');
+    var work = button.data('work');
     var modal = $(this);
-    modal.find('#title').val(technique.title);
-    modal.find('#width').val(technique.width);
-    modal.find('#height').val(technique.height);
-    modal.find('#year').val(technique.year);
-    modal.find('#produced').val(technique.produced);
-    modal.find('#edition').val(technique.edition);
-    modal.find('#price').val(technique.price);
-    modal.find('#status').val(technique.status);
-    modal.find('#serie_id').val(technique.serie_id);
-    modal.find('#technique_id').val(technique.technique_id);
+    modal.find('#title').val(work.title);
+    modal.find('#width').val(work.width);
+    modal.find('#height').val(work.height);
+    modal.find('#year').val(work.year);
+    modal.find('#produced').val(work.produced);
+    modal.find('#edition').val(work.edition);
+    modal.find('#price').val(work.price);
+    modal.find('#status').val(work.status);
+    modal.find('#serie_id').val(work.serie_id);
+    modal.find('#technique_id').val(work.technique_id);
     modal.find('#editForm').attr('action', action);
 });
 // DELETE
-$('#techniqueSoftDelete').on('show.bs.modal', function (event) {
+$('#workSoftDelete').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     var action = button.data('action');
-    var technique = button.data('technique');
+    var work = button.data('work');
     var modal = $(this);
     modal.find("#softDeleteForm").attr('action', action);
-    modal.find('#techniqueName').text(technique.name);
+    modal.find('#workName').text(work.title);
 });
 

@@ -68,7 +68,7 @@
     @include('/available/works/create')
     @if (isset($serie))
         @include('/available/works/edit')
-        {{-- @include('/available/works/delete') --}}
+        @include('/available/works/delete')
     @endif
 
     {{-- --------------- END MODALS ---------------- --}}
